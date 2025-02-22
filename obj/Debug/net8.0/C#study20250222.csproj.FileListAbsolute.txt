@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\C#study20250222\bin\Debug\net8.0\C#study20250222.exe
+C:\Users\User\source\repos\C#study20250222\bin\Debug\net8.0\C#study20250222.deps.json
+C:\Users\User\source\repos\C#study20250222\bin\Debug\net8.0\C#study20250222.runtimeconfig.json
+C:\Users\User\source\repos\C#study20250222\bin\Debug\net8.0\C#study20250222.dll
+C:\Users\User\source\repos\C#study20250222\bin\Debug\net8.0\C#study20250222.pdb
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.AssemblyInfo.cs
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.dll
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\refint\C#study20250222.dll
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.pdb
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\C#study20250222.genruntimeconfig.cache
+C:\Users\User\source\repos\C#study20250222\obj\Debug\net8.0\ref\C#study20250222.dll
