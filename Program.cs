@@ -297,29 +297,29 @@ namespace C_study20250222
             string age = Console.ReadLine();
             int age1= int.Parse(age);
             Console.Write("군인인가요?(네/아니요) : ");
-            string sol = Console.ReadLine();
+            string isSol = Console.ReadLine();
             Console.Write("연간 회원인가요?(네/아니요) : ");
-            string mem = Console.ReadLine();
+            string isMem = Console.ReadLine();
 
-            string ages;
+            double price=0;
 
-
-            if(mem =="네" || age1<=3 || age1 >= 65)
+            if (age1 >= 65 || isMem == "네")
             {
                 Console.WriteLine("무료 입장입니다.");
             }
-            else if(age1 < 65 && age1 > 18)
+            else
             {
-                ages = "a";
+                if (age1 <= 64 && age1 >= 19)
+                    price = 10000;
+                else if (age1 <= 18 && age1 >= 13)
+                    price = 8000;
+                else if (age1 <= 12 && age1 >= 4)
+                    price = 5000;
+                if (isSol == "네")
+                    price *= 0.7;
             }
-            else if (age1 <19 &&  age1 > 12)
-            {
-                ages = "b";
-            }
-            else if(age1<13 && age1 > 3)
-            {
-                ages = "c";
-            }
+
+            Console.WriteLine($"입장료는 {price}입니다.");
         }
     }
 }
