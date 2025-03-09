@@ -274,52 +274,347 @@ namespace C_study20250222
             //        break;
             //}
 
-            /*Parse
-            문자열 데이터를 다른 데이터 타입으로 변환하는 기능
-            */
+            ///*Parse
+            // *문자열 데이터를 다른 데이터 타입으로 변환하는 기능
+            // */
             //Console.Write("숫자를 입력해 주세요 : ");
             //string input =Console.ReadLine();
             //int value = int.Parse(input);
             //Console.Write(value);
-            /*문제)놀이동산 입장권
-             * 사용자로부터 나이, 군인할인, 연간 회원 여부를 입력받아서 입장요금을 계산
-             * 1.무료입장 조건: 나이가 3세이하 65세이상, 연간 회원
-             * 2.할인 적용: 군인 30%할인
-             * 3.일반 요금:성인(19~64세)10,000원, 청소년(13~18세)8,000원, 어린이(4~12세)5,000원
-             * 
-             * 나이를 입력하세요:(나이)
-             * 군인인가요?(네/아니요):
-             * 연산 회원인가요?(네/아니요):
-             * 입장료는 000입니다./무료 입장입니다.
+            ///*문제)놀이동산 입장권
+            // * 사용자로부터 나이, 군인할인, 연간 회원 여부를 입력받아서 입장요금을 계산
+            // * 1.무료입장 조건: 나이가 3세이하 65세이상, 연간 회원
+            // * 2.할인 적용: 군인 30%할인
+            // * 3.일반 요금:성인(19~64세)10,000원, 청소년(13~18세)8,000원, 어린이(4~12세)5,000원
+            // * 
+            // * 나이를 입력하세요:(나이)
+            // * 군인인가요?(네/아니요):
+            // * 연산 회원인가요?(네/아니요):
+            // * 입장료는 000원 입니다./무료 입장입니다.
+            // */
+
+            //직접 풀어본 코드
+            //Console.Write("나이를 입력하세요 : ");
+            //string age = Console.ReadLine();
+            //int age1= int.Parse(age);
+            //Console.Write("군인인가요?(네/아니요) : ");
+            //string isSol = Console.ReadLine();
+            //Console.Write("연간 회원인가요?(네/아니요) : ");
+            //string isMem = Console.ReadLine();
+
+            //double price=0;
+
+            //if (age1 >= 65 || isMem == "네" || age1 <= 3)
+            //{
+            //    Console.WriteLine("무료 입장입니다.");
+            //}
+            //else
+            //{
+            //    if (age1 <= 64 && age1 >= 19)
+            //        price = 10000;
+            //    else if (age1 <= 18 && age1 >= 13)
+            //        price = 8000;
+            //    else if (age1 <= 12 && age1 >= 4)
+            //        price = 5000;
+            //    if (isSol == "네")
+            //        price *= 0.7;
+            //}
+
+            //Console.WriteLine($"입장료는 {price}원 입니다.");
+
+            ///*예시*/
+            //int adult = 10000;
+            //int youth = 8000;
+            //int child = 5000;
+
+            //Console.Write("나이를 입력하세요 : ");
+            //string _Age = Console.ReadLine();
+            //int _Age1 = int.Parse(_Age);
+            //Console.Write("군인인가요?(네/아니요) : ");
+            //string _isSol = Console.ReadLine();
+            //Console.Write("연간 회원인가요?(네/아니요) : ");
+            //string _isMem = Console.ReadLine();
+            ////요금 계산
+            //float pay = 0;
+            //if (_Age1 >= 65 || _Age1 <= 3)//나이가 65이상 OR 3세 이하
+            //{
+            //    pay = 0;
+            //}
+            //else if (_Age1 <= 64 && _Age1 >= 19)//19세 이상 And 64세 이하
+            //    pay = adult;
+            //else if (_Age1 <= 18 && _Age1 >= 13)//18세 이상 And 13세 이하
+            //    pay = youth;
+            //else//4세 이상 And 12세 이하
+            //    pay = child;
+            //if (_isSol == "네")
+            //{
+            //    //현재 apy*0.7 == 70% 할인된 가격
+            //    //pay *= 0.7f;//int형 변수는 소수점을 계산하지 못하기 때문에 float, double형을 바꾸어 주어야한다             
+            //    //float temp = (pay * 0.7f); //값이 6999.1535... 식으로 나올 수 있음.        
+            //    //pay = (int)temp;
+            //    pay = (int)(pay * 0.7f); //pay * 0.7f을 먼저 계산한 후에 int형으로 바꾸기 위해 ()를 써주어야한다.
+            //}
+            //if (_isMem == "네")
+            //    pay = 0;
+
+            //if(pay==0)
+            //    Console.WriteLine("무료 입장입니다.");
+            //else
+            //    Console.WriteLine($"입장료는 {pay}원 입니다.");
+
+            ///*반복문
+            // * 코드를 반복적으로 실행=>언제까지 반복을 실핼할 것인가?(중요)//프로그래머가 정의
+            // * 크게 아래 3개로 나뉜다
+            // * 1.while(언제까지 반복될건지 값이 true면 반복//false가 될때까지 반복)
+            // *  {
+            // *      반복적으로 실행될 코드
+            // *  }
+            // * 2.for(몇번 실행할건지에 대한 조건/변수(정수);조건;변수처리{사칙연산, 증감})
+            // * {
+            // *      반복적으로 실행될 코드
+            // * }
+            // * 3.do {
+            // * 
+            // * }while() 기본적으로 while문과 비슷하지만 코드를 무조건 한번은 실행 시킨다.
+            // * {
+            // *      
+            // * }
+            // */
+            //int count = 1;
+            //while (count < 10)
+            //{
+            //    count++;//count < 10 일때 코드가 실행
+            //    Console.WriteLine(count);
+            //}
+            //Console.WriteLine($"&반복문이 끝났습니다. count는 {count}입니다.");
+            //int count = 1;
+            //while (true)//무한 루프(무한 루프안에 무한루프를 넣는 것을 기피해야한다.)반복문이 끝나지 않고 계속 실행되는 현상
+            //{
+            //    Console.WriteLine(count);
+            //    count++;
+            //    if (count > 10)
+            //    {
+            //        break;//break;를 만나면 반복문이 종료된다.
+            //    }
+            //}
+            //반복문이 실행될 때 특정 순간에 그냥 스킵하고 싶을때 사용하는 키워드 ==> countinue
+            //continue를 만나면 나머지를 실행하지 않고 반복문의 조건을 비교하는 부분으로 스킵한다.
+            //int count = 1;
+            //while (true)//무한 루프(무한 루프안에 무한루프를 넣는 것을 기피해야한다.)반복문이 끝나지 않고 계속 실행되는 현상
+            //{
+            //    if (count%2 == 0)
+            //    {
+            //        count++;
+            //        continue;//짝수일 때 아래코드를 스킵한다.
+            //    }
+            //    Console.WriteLine(count);
+            //    count++;
+            //    if (count > 100)
+            //        break;
+            //}
+            //do
+            //{
+            //    Console.WriteLine("Hello World!");//한번은 무조건 실행된다.
+            //} while (false);
+            //for (int i = 0; i< 10; i+=2)//외부에서 변수를 가져와도 된다.단 변수를 초기화 해줘야한다. 조건에 true를 넣을 경우 무한 루프
+            //{
+            //    Console.WriteLine(i);//int i를 선언했기때문에 변수i를 사용할 수 있다.but for문 밖에서는 접근할 수 없다.
+            //}//break;, continue; 또한 사용 가능
+
+            ///*문제
+            // * 구구단
+            // * 2부터 9까지의 숫자를 받아 해당하는 구구단을 출력
+            // * 예시)
+            // * 구구단을 출력할 숫자를 입력하세요.(2~7):
+            // * 구구단 7단
+            // * 7*1=7
+            // * .
+            // * .
+            // * .
+            // * 7*9=63
+            // */
+
+            //Console.Write("구구단을 출력할 숫자를 입력하세요.(2~9):");
+            //string input=Console.ReadLine();
+            //int value=int.Parse(input);
+            //Console.WriteLine($"구구단 {value}단");
+            ////int output;
+            //for (int i = 1; i < 10; i++)
+            //{
+            //    //output =value * i;
+            //    Console.WriteLine($"{value} * {i} = {value*i}");//value*i => output
+            //}
+
+            //다중 반복문-반복문안에 반복문을 넣는 것
+            //for(int i= 0; i< 5 ; i++){
+            //      i변수를 선언한 for문에서 반복적으로 실행할 코드
+            //      for(int j=0; j<5; j++){
+            //              j변수로 선언한 for문의 반목할 코드
+            //          }
+            //}
+
+            /*문제
+             * 별찍기
+             * 1)왼쪽 정렬된 직각 삼각형
+             * *
+             * **
+             * ***
+             * ****
+             * 2)오른쪽 정렬된 직각 삼각형
+             *    *
+             *   **
+             *  ***
+             * ****
+             * 3)피라미드
+             *   *  
+             *  ***
+             * *****
+             * 3)다이아몬드
+             *    *
+             *   ***
+             *  *****
+             *   ***
+             *    *
+             *  
              */
 
-            Console.Write("나이를 입력하세요 : ");
-            string age = Console.ReadLine();
-            int age1= int.Parse(age);
-            Console.Write("군인인가요?(네/아니요) : ");
-            string isSol = Console.ReadLine();
-            Console.Write("연간 회원인가요?(네/아니요) : ");
-            string isMem = Console.ReadLine();
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    for (int j = 1; j <= i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();//왼쪽 정렬
+            //for (int i = 5; i >= 1; i--)
+            //{
+            //    for (int j = 1; j <= i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();
 
-            double price=0;
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    for (int j = 1; j <= (5 - i); j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int k = 1; k <= i; k++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();//오른쪽 정렬
 
-            if (age1 >= 65 || isMem == "네")
-            {
-                Console.WriteLine("무료 입장입니다.");
-            }
-            else
-            {
-                if (age1 <= 64 && age1 >= 19)
-                    price = 10000;
-                else if (age1 <= 18 && age1 >= 13)
-                    price = 8000;
-                else if (age1 <= 12 && age1 >= 4)
-                    price = 5000;
-                if (isSol == "네")
-                    price *= 0.7;
-            }
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    for (int j = 1; j <= (5 - i + 1); j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();//왼쪽 역 정렬
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    for (int j = 1; j <= (5 - i + 1); j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int k = 1; k <= i; k++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();//오른쪽 역 정렬
 
-            Console.WriteLine($"입장료는 {price}입니다.");
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    for (int l = 1; l <= i + 1; l++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 1; j <= 5 - i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    for (int k = 1; k <= (5 - i + 1); k++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();//역피라미드
+
+            //for (int i = 1; i <= 5; i++)
+            //{
+            //    for (int j = 1; j <= (5 - i + 1); j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int k = 1; k <= i; k++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    for (int l = 1; l <= i - 1; l++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();//피라미드
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    for (int j = 0; j < (5 - i); j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int k = 0; k <= i - 1; k++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    for (int l = 0; l <= i; l++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    for (int l = 0; l < i + 2; l++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 0; j < 5 - i - 2; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    for (int k = 0; k < (5 - i - 1); k++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    for (int j = 0; j < 5 - i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
         }
     }
 }
