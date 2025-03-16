@@ -569,10 +569,12 @@ namespace C_study20250222
             //    Console.WriteLine();
             //}
             //Console.WriteLine();//피라미드
-
-            //for (int i = 0; i < 5; i++)
+            //int count = 3;
+            //int line;
+            //line = count / 2;
+            //for (int i = 0; i < line; i++)
             //{
-            //    for (int j = 0; j < (5 - i); j++)
+            //    for (int j = 0; j < (line - i); j++)
             //    {
             //        Console.Write(" ");
             //    }
@@ -587,17 +589,17 @@ namespace C_study20250222
             //    Console.WriteLine();
             //}
 
-            //for (int i = 0; i < 5; i++)
+            //for (int i = 0; i < line; i++)
             //{
             //    for (int l = 0; l < i + 2; l++)
             //    {
             //        Console.Write(" ");
             //    }
-            //    for (int j = 0; j < 5 - i - 2; j++)
+            //    for (int j = 0; j < line - i - 2; j++)
             //    {
             //        Console.Write("*");
             //    }
-            //    for (int k = 0; k < (5 - i - 1); k++)
+            //    for (int k = 0; k < (line - i - 1); k++)
             //    {
             //        Console.Write("*");
             //    }
@@ -615,6 +617,229 @@ namespace C_study20250222
             //}
 
 
+            //int count = 31;
+            //int line;
+            //line = count / 2;
+            //for (int i = 1; i <= line; i++)
+            //{
+            //    for (int j = 0; j < line - i; j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 0; j < 2 * i - 1; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //for (int i = 1; i <= line; i++)
+            //{
+            //    for (int j = 0; j < i; j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 0; j < 2 * (line - i) - 1; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //int line = 6;
+
+            //for (int i = 1; i <= line; i+=2)//i는 별의 갯수
+            //{
+            //    for (int j = 1; j <= (line-i)/2; j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 1; j <= i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //for (int i = line - 2 ; i >= 1; i -=2)//i는 별의 갯수
+            //{
+            //    for (int j = 1; j <= (line - i) / 2; j++)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 1; j <= i; j++)
+            //    {
+            //        Console.Write("*");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+
+            //객체 vs 값
+            //객체(Object): Class로 부터 생성된 실체(Instance), Class는 설계도(템플릿)이고 실제는 메모리에 생성된 데이터이다.
+            //Class: 데이터와 그 데이터와 관련된 데이터를 다루는데 필요한 기능들을 하나의 단위로 묶어서 관리한다.
+            //Class를 통해서 생성된 실체를 객체하고 부른다.
+            //값 vs 객체의 차이가 중요
+
+            //예) 여러 학생을 관리 학생1:홍길동, 20 학생2:홍길순, 22 ... 여러학생들의 정보를 일일히 변수로 정의해줘야하는 번거로움이 늘어난다.또한 한번에 관리기가 힘듦
+            //데이터가 많아질 수록 데이터를 묶어서 관리할 필요성이 생김 이떄 Class를 관리하기 위해 객체라는 개념이 등장
+            //Class를 정의 하고 이에 표함될 데이터를 선언 =>feild(필), 프로터티(속성)
+            //같은 Class의 데이터라도 각각의 클래스들을 분리하여 관리 => Object(객체), Class로 부터 생성된 실체
+
+            //Class 선언 및 사용
+            //Students _student1 = new Students();//새로운 클래스의 실체를 생성
+            //_student1.age = 20;
+            //_student1.name= "홍길동";//Student에 필요한 데이터들을 가져올 수 있다.
+            //Students _student2 = new Students();//새로운 클래스의 실체를 생성
+            //_student2.age = 25;
+            //_student2.name = "홍길순";
+            //Students _student3 = new Students();//새로운 클래스의 실체를 생성
+            //_student3.age = 22;
+            //_student3.name = "홍길철";
+
+            //값 타입 변수: 변수의 직접 데이터를 저장 예)int a=10, b=a; b=50;
+            //메모리: 
+            //Number num1 = new Number();//참조 타입 변수
+            //num1.Value = 10;//num1.Value에 10을 할당
+            //Number num2 = num1;//num1이 가르키는 주소를 num2에 저장
+            //num2.Value = 20;//num2가 가르키는 주소= num1이 가르키는 주소이기 때문에 num1.Value 가 20으로 바뀐다.
+            //Console.WriteLine(num1.Value);
+            //Console.WriteLine(num2.Value);
+
+            //C#에서 제공하는 클래스들
+            //1.배열: 같은 타입의 여러 데이터들을 순서대로 저장하기 위한 데이터 구조/클래스는 아니지만 참조형 데이터
+            //int[] _Ages = new int[5];//[]:  배열의 인덱스
+            //_Ages[0] = 10;
+            //_Ages[1] = 20;
+            //_Ages[2] = 30;
+            //_Ages[3] = 40;
+            //_Ages[4] = 50;
+
+            //int[] _Ages2 = _Ages;
+            //_Ages2[0] = 60;
+            //_Ages2[1] = 7                                                                                     0;
+
+            //for (int i = 0; i < _Ages.Length; i++)
+            //{
+            //    Console.WriteLine(_Ages[i]);
+            //}
+
+            //1부터 10까지 저장되어있는 배열을 선언하고
+            //for문으로 배열의 요소들을 모두 더해서 그 결과를 출력하세요
+            //int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //int sum=0;
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+            //    sum += nums[i];
+            //}
+            //Console.WriteLine(sum);
+
+            ////Console.WriteLine(nums.Sum());
+
+            ////1~까지 배열의 짝수의 합을 출력
+            //sum = 0;
+            //for (int i = 0;i < nums.Length; i++)
+            //{
+            //    if (nums[i]%2==0) {
+            //        sum += nums[i];
+            //    }
+            //}
+            //Console.WriteLine(sum);
+
+            //int[] numbers= {5,10,60,45,15,30}에서 최댓값,최솟값 출력
+
+            //int[] numbers = {5,10,60,45,15,30};
+
+            //int max= numbers[0], min=numbers[0];
+
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    if (max < numbers[i])
+            //    {
+            //        max = numbers[i];
+            //    }
+            //}
+            //Console.WriteLine(max);
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    if (min > numbers[i])
+            //    {
+            //        min = numbers[i];
+            //    }
+            //}
+            //Console.WriteLine(min);
+
+            
+            //Console.WriteLine(numbers.Max());
+            //Console.WriteLine(numbers.Min());
+
+            //2.List: 가변 배열, 크기가 고정되어 배열과 달리 크기를 동적으로 바꿀 수 있는 배열
+            //일반 배열 vs 가변 배열// 일반배열:크기 고정,가변배열:크기가 변할 수 있음
+
+            //List<변수형> 변수명 = new List<변수형>();
+            List<int> ints = new List<int>();
+            ints.Add(1);
+            ints.Add(2);
+            ints.Add(3);
+
+            for (int i = 0; i < ints.Count; i++)
+            {
+                Console.WriteLine(ints[i]);
+            }
+            //list를 일반 배열로 변환 가능
+            int[] ints1 = ints.ToArray();
+            for (int i = 0;i < ints1.Length; i++)
+            {
+                Console.WriteLine(ints1[i]);
+            }
+
+            ints.Remove(3);
+            ints.RemoveAt(0);
+            for (int i = 0; i < ints.Count; i++)
+            {
+                Console.WriteLine(ints[i]);
+            }
+
+            //List 특정 요소를 포함하고 있는지 확인
+            Console.WriteLine($"Is include 2? {ints.Contains(2)}");
+            Console.WriteLine($"Is include 2? {ints.Contains(1)}");
+
+            //리스트 정렬
+            ints.Add(321);
+            ints.Add(542);
+            ints.Add(456);
+            ints.Add(354);
+            ints.Add(457);
+            ints.Add(555);
+            ints.Add(635);
+            ints.Sort();
+            for (int i = 0; i < ints.Count; i++)
+            {
+                Console.Write(ints[i]+" ");
+            }
+
+            Solution solution = new Solution();
+            solution.solution(ints1 );
         }
+        public class Solution
+        {
+            public int[] solution(int[] numbers)
+            {
+                int[] answer = new int[] { };
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    answer[i] = numbers[i]*2;
+                }
+                return answer;
+            }
+        }
+
+        //학생 클래스
+        //class Students
+        //{
+        //    public int age;
+        //    public string? name;
+        //}
+        //class Number
+        //{
+        //    public int Value;
+        //}
     }
 }
