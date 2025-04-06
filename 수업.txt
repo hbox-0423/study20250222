@@ -1359,3 +1359,209 @@ namespace ConsoleApp2
         //소멸자의 주된 목적은 사용한 리소스를 정리(파일 닫기, 네트워크 연결 해제...)
     }
 }
+
+========================================================================================================================
+using System.Reflection.Metadata.Ecma335;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        // 캐릭터와 아이템 장착
+        // Player 클래스와 Item 클래스를 구현하여, RPG 게임에서 아이템을 착용해서 캐릭터의 공격력을 증가시키는 코드를 작성
+        // 아이템을 장착하면 공격력이 증가하고, 아이템이 없어도 기본적으로 공격력은 가지고 있어야 합니다.
+        /*
+         요구사항:
+            아이템 클래스 (Item)
+                Item 클래스는 아래와 같은 속성들을 가집니다:
+                    - Name: 아이템의 이름 (예: "철검", "방패")
+                    - AttackBonus: 아이템이 제공하는 공격력 보너스 (정수형)
+                Item 클래스의 생성자는 Name과 AttackBonus를 받아 초기화해야 합니다.
+
+            플레이어 클래스 (Player)
+            Player 클래스는 아래와 같은 속성들을 가집니다:
+                - Name: 플레이어의 이름 (예: "영웅")
+                - Attack: 기본 공격력 (정수형)
+                - EquippedItem: 현재 착용한 아이템을 저장하는 속성 (Item 객체)
+                - EquipItem 메서드: 아이템을 착용하는 메서드입니다. null을 전달하면 아이템을 해제합니다.
+                - DisplayAttackPower 메서드: 플레이어의 총 공격력을 계산하여 출력하는 메서드입니다. 아이템이 착용되었을 경우, 아이템의 공격력 보너스를 추가합니다.
+
+            조건
+            - 아이템이 착용된 경우, Attack에 Item.AttackBonus 값을 더한 총 공격력을 계산하여 출력해야 합니다.
+            - 아이템이 null인 경우, Attack 값만 출력되어야 합니다.
+            
+            Main 메서드
+            - Player 객체를 생성하고, Item 객체를 생성하여 아이템을 착용하고 공격력을 출력하는 프로그램을 작성합니다.
+         */
+
+        // 출력 예시
+        // 영웅의 총 공격력: 10
+        // 영웅은 철검을 착용했습니다.
+        // 영웅의 총 공격력: 15
+        // 영웅은 아이템을 해제했습니다.
+        // 영웅의 총 공격력: 10
+
+        // 선택 사항 아이템을 선택하여 장착하는 시스템을 만들어 주세요
+        class Player
+        {
+            private string name;
+            private int Attack;
+            public int AttackPower;
+            private Item EquippedItem;
+            public Player(string name,int Attack)
+            {
+                this.name = name;
+                this.Attack = Attack;
+                EquippedItem = null;
+            }
+            
+            public void EquipItem(Item item)
+            {
+                if (item != null)
+                {
+                    EquippedItem = item;
+                    Console.WriteLine($"{this.name}이/가 {EquippedItem.name}을/를 착용하였습니다.");
+                }
+                else if (item == null)
+                {
+                    EquippedItem = null;
+                    Console.WriteLine($"{this.name}이/가 아이템을 해제하였습니다.");
+                }
+            }
+            public void DisplayAttackPower()
+            {
+                if (EquippedItem != null)
+                    this.AttackPower = this.Attack + EquippedItem.AttackBonus;
+                else
+                    this.AttackPower = this.Attack;
+
+                Console.WriteLine($"{this.name}의 총 공격력 : {this.AttackPower}");
+            }
+        }
+        class Item
+        {
+            public int AttackBonus;
+            public string name;
+            public Item(string name,int AttackBonus)
+            {
+                this.name=name;
+                this.AttackBonus = AttackBonus;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Item sword = new Item("철검",5);
+            Item Sheild = new Item("방패", 3);
+            Player player = new Player("영웅",10);
+
+            player.DisplayAttackPower();
+
+            Console.WriteLine($"착용할 아이템을 선택하세요.\n 1. {sword.name} \n 2. {Sheild.name}");
+            string Choice = Console.ReadLine();
+            switch (Choice)
+            {
+                case "1":
+                    player.EquipItem(sword);
+                    player.DisplayAttackPower();
+                    player.EquipItem(null);
+                    player.DisplayAttackPower();
+                    break;
+                case "2":
+                    player.EquipItem(Sheild);
+                    player.DisplayAttackPower();
+                    player.EquipItem(null);
+                    player.DisplayAttackPower();
+                    break;
+            }
+        }
+    }
+}
+
+=============================================================================================================
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        //String : 문자의 배열
+        //string => 객체
+        //문자열 불변성
+        //C#에서는 문자열은 *불변 객체*이다.
+        //불변 객체는 생성된 이후 그 값을 변경할 수 없다.
+        //문자열을 변경하는 것처럼 보이는 작업은 실제로는 새로운 문자열 객체를 생성하는 것이다.
+
+        //string oringinal = "Hello";
+        //string modified = oringinal + " world";
+        //Console.WriteLine(oringinal);
+
+        //새로운 문자를 추가하는 행위도 계속해서 객체를 만드는 것이기 때문에
+        //컴퓨터 입장엔 무거운 작업이다.
+
+        //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        //StringBuilder을 사용하여 부하를 줄인다.
+
+        //문자열이 자주 변경되어야 할때 StringBuilder를 사용하는 것이 효율적이다.
+        //StringBuilder는 가변 객체로, string 같은 불변 객체보다 메모리와 성능 측면에서 유리하다.
+        static void Main(string[] args)
+        {
+            StringBuilder sb = new StringBuilder();
+            //문자열을 StringBuilder에 추가(Append)
+
+            sb.Append("Hello");
+            sb.Append(" ");
+            sb.Append("World");
+            sb.AppendLine();//줄바꿈 포함
+
+            string result = sb.ToString();
+            Console.WriteLine(result);
+            //새롭게 문자를 처음부터 할당
+            sb.Clear();//기존 문자 삭제 및 초기화
+
+        }
+    }
+}
+
+===========================================================================================================
+
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        //문자열 포멧팅
+        //문자를 특정 형식에 맞게 출력하고 싶을 때 
+        //소수점 아래 두자리 표시, 통화 형식 표시, 날씨 형식 표시, 정수 형식 표시
+
+        
+        static void Main(string[] args)
+        {
+            //소수점 두자리
+            double pi = 3.14159265;
+            string formatpi = $"Pi is {pi:f2}";
+            Console.WriteLine(formatpi);
+
+            //통화 형식(콤마표시)
+            double price = 199000000.99;
+            string formatprice = $"Price is {price:n0}";
+            Console.WriteLine(formatprice);
+
+            //날짜 표시
+            DateTime dateTime = DateTime.Now;
+            string fomatdate = $"Today is {dateTime:H:m:s}";
+            Console.WriteLine(fomatdate);
+
+            //정수 형식 표시
+            int num = 1234 ;
+            string formatnum = $"number : {num:d8}";//부족한 만큼 0으로 채우기
+            Console.WriteLine (formatnum);
+        }
+    }
+}
+
+============================================================================================================================
+
